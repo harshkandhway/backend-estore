@@ -44,11 +44,11 @@ app.use('/api/v1/order', order);
 // }
 app.get(/.*/, (req,res)=>res.sendFile(__dirname + '/public/index.html'));
 app.use(notFoundMiddleware);
-const port = process.env.port || 3001;
+const PORT = process.env.PORT || 3001;
 
 connectDB(process.env.MONGO_URI).then(()=>{
     console.log("db connected..")
-    app.listen(port,console.log(`server is listening on port ${port}`))
+    app.listen(PORT,console.log(`server is listening on port ${PORT}`))
 })
 .catch((err)=>console.log(err))
 
